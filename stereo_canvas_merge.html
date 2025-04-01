@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Stereoscopy4Wiki</title>
+    <link rel="stylesheet" href="css/menu.css">
+    <script type="text/javascript">
+    var vDataJSON = {
+      "files4json": {}
+    }
+    var stereoscopy4js = {};
+    var img4dom = {};
+    var options = {
+
+    }
+
+    </script>
+    <script type="text/javascript" src="db/files4json.js"></script>
+    <script src="js/loadfile4dom.js"></script>
+    <script src="js/loadfile4dom_init.js"></script>
+    <script src="js/filesaver.js"></script>
+
+    <script type="text/javascript" src="js/camanjs.js"></script>
+    <script type="text/javascript">
+
+    Caman.Filter.register("grayscale", function () {
+
+      this.process("grayscale", function (rgba) {
+        // rgb(0, 153, 51) dunkelgrün grün rgb(0,255,0)
+        var lumin = (0.2126 * rgba.r) + (0.7152 * rgba.g) + (0.0722 * rgba.b);
+        rgba.r = lumin;
+        rgba.g = lumin;
+        rgba.b = lumin;
+      });
+
+      return this;
+
+    });
+
+    </script>
+    <script src="js/lib4stereoscopy.js"></script>
+
+  </head>
+  <body>
+      <h2>Stereoscopy WebApp</h2>
+      <center>
+        <table id="table4preview" width="90%">
+          <tr>
+            <th  width="50%">
+              <h3>Left Eye
+              <select id="color4left" onclick="changeAnaglyphColor()">
+                  <option selected>red</option>
+                  <option>green</option>
+                  <option>cyan</option>
+              </select>
+              <button id="bLoadLeft" class="btn4menu" onclick="lf4d.open_dialog('file2leftimage');return false">
+                  <img src="img/icons-svg/fa-folder-open-white.svg" width=14 height=14>
+                  Load Left Image
+                </button>
+
+            </h3>
+            </th>
+            <th  width="50%">
+              <h3>Right Eye
+                <select id="color4right" onclick="changeAnaglyphColor()">
+                    <option>red</option>
+                    <option selected>green</option>
+                    <option>cyan</option>
+                </select>
+                <button id="bLoadRight" class="btn4menu" onclick="lf4d.open_dialog('file2rightimage');return false">
+                    <img src="img/icons-svg/fa-folder-open-white.svg" width=14 height=14>
+                    Load Right Image
+                  </button>
+            </h3>
+            </th>
+          </tr>
+          <tr>
+            <td align="center">
+              <!--
+              <img  id="preview4left" width="95%" src="img/img4stereoscopy/bench/bench_left.jpg">
+              -->
+              <tt  id="filename4left"> bench_left.png</tt>
+            </td>
+            <td align="center">
+              <!--
+              <img  id="preview4right" width="95%"  src="img/img4stereoscopy/bench/bench_right.jpg">
+              -->
+              <tt  id="filename4right"> bench_right.png</tt>
+            </td>
+          </tr>
+          <tr style="display:none">
+            <td>
+              <div id="thumb4imageleft">
+                <img  id="thumb4left95" width="95%" src="img/img4stereoscopy/bench/bench_left.jpg">
+              </div>
+            </td>
+            <td>
+              <div id="thumb4imageright">
+                <img  id="thumb4right95" width="95%"  src="img/img4stereoscopy/bench/bench_right.jpg">
+            </div>
+            </td>
+          </tr>
+          <tr>
+            <td align="center">
+              <!--
+              <img  id="preview4left" width="95%" src="img/img4stereoscopy/bench/bench_left.jpg">
+              -->
+              <img  id="preview4left" width="100%" src="img/img4stereoscopy/wheel/wheel_left.jpg">
+            </td>
+            <td align="center">
+              <!--
+              <img  id="preview4right" width="95%"  src="img/img4stereoscopy/bench/bench_right.jpg">
+              -->
+              <img  id="preview4right" width="100%"  src="img/img4stereoscopy/wheel/wheel_right.jpg">
+          </td>
+          </tr>
+        </table>
+
+        <table>
+          <tr>
+            <td>
+              <button id="button4align" class="btn4menu" onclick="startPositioningImage();return false">
+                <img src="img/icons-svg/action-white.svg" width=14 height=14>
+                  Drag Image
+              </button>
+           </td>
+           <td>
+             <select id="selector4output" onchange="changeOutputFormat(this.value)">
+               <option value="anaglyph" selected>Anaglyph 3D</option>
+               <option value="stereoscopy">Stereoscopy</option>
+               <option value="all">Anaglyph + Stereoscopy</option>
+             </select>
+              </td>
+            <td>
+              <button id="button4cropstereo" class="btn4menu" onclick="startCropingImage();return false" style="display:Xnone">
+                <img src="img/icons-svg/i4m-shift-frame-white.svg" width=14 height=14>
+                  Stereo Crop Select
+              </button>
+            </td>
+          </tr>
+        </table>
+      </span>
+      </center>
+
+      <center id="buttons4positioning" style="display:none">
+        <table>
+        <tr>
+          <td align="center" colspan=5>
+            <!-- <input type="button" id="" value="Translate" onclick="showTranslateButtons()"> -->
+            <b>Rotate Image:</b>
+            <span id="span4degree">0</span><sup>o</sup>
+            &nbsp;
+            <button type="button" id="leftslow" onclick="resetRotation('right')">
+              <img src="img/icons-svg/carat-r.svg" alt="reset 0">
+              0
+              <img src="img/icons-svg/carat-l.svg" alt="reset 0">
+            </button>
+
+          </td>
+        </tr>
+        <tr>
+          <td align="center">
+            <button type="button"  id="clockwisefast" onclick="rotateImageClick('right',1)">
+              <img src="img/icons-svg/clockwise-fast-black.svg"  alt="anti-clockwise rotate fast">
+            </button>
+          </td>
+          <td align="center">
+            <button type="button" id="clockwise" onclick="rotateImageClick('right',0.1)">
+              <img src="img/icons-svg/clockwise-black.svg"  Xclass="icon-mirror-vert" alt="anti-clockwise rotate">
+            </button>
+          </td>
+          <td align="center">
+            <input id="slider4degree" type="range" min="-45" max="45" step="0.1" value="0" onchange="rotateImage('right',this.value)">
+          </td>
+          <td align="center">
+            <button type="button"  id="clockwisefast" onclick="rotateImageClick('right',-0.1)">
+              <img src="img/icons-svg/clockwise-anti-black.svg"  alt="clockwise rotate">
+            </button>
+          </td>
+          <td align="center">
+            <button type="button"  id="clockwisefast" onclick="rotateImageClick('right',-1)">
+              <img src="img/icons-svg/clockwise-fast-anti-black.svg"  alt="clockwise rotate fast">
+            </button>
+          </td>
+        </tr>
+        <tr>
+            <td id="glasses4left" style=""> </ld>
+            <td></td>
+            <td>
+            </td>
+            <td></td>
+            <td id="glasses4right" colo> </ld>
+          </tr>
+        </table>
+
+        <table>
+          <tr>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+              <button type="button" id="upfast" onclick="moveImage(0,-10)">
+                <img src="img/icons-svg/i4m-carat-uu.svg" alt="up fast">
+              </button>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+              <button type="button" id="upslow" onclick="moveImage(0,-1)">
+                <img src="img/icons-svg/carat-u.svg" alt="up slow">
+              </button>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button type="button" id="leftfast" onclick="moveImage(-10,0)">
+                <img src="img/icons-svg/i4m-carat-ll.svg" alt="left fast">
+              </button>
+            </td>
+            <td>
+              <button type="button" id="leftslow" onclick="moveImage(-1,0)">
+                <img src="img/icons-svg/carat-l.svg" alt="left slow">
+              </button>
+            </td>
+            <td>
+              <button type="button" id="leftslow" onclick="createImages()">
+                OK
+              </button>
+            </td>
+            <td>
+              <button type="button" id="rightslow" onclick="moveImage(1,0)">
+                <img src="img/icons-svg/carat-r.svg" alt="right slow">
+              </button>
+              </td>
+            <td>
+              <button type="button" id="rightfast" onclick="moveImage(10,0)">
+                <img src="img/icons-svg/i4m-carat-rr.svg" alt="left fast">
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+              <button type="button" id="downslow" onclick="moveImage(0,1)">
+                <img src="img/icons-svg/carat-d.svg" alt="down slow">
+              </button>
+              </td>
+            <td>
+            </td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+              <button type="button" id="downfast" onclick="moveImage(0,10)">
+                <img src="img/icons-svg/i4m-carat-dd.svg" alt="down fast">
+              </button>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+          </tr>
+        </table>
+        <table id="exportButtons" style="display:none">
+          <tr>
+            <td>
+              <button type="button" id="bFullscreenStereoscopy" onclick="showFullscreen('stereoscopy')">
+                <img src="img/icons-svg/eye-black.svg" alt="Show Anaglyph Image in Fullscreen">
+                Stereoscopy
+              </button>
+            </td>
+            <td>
+              <button type="button" id="bFullscreenAnaglyph" onclick="showFullscreen('anaglyph')">
+                <img src="img/icons-svg/eye-black.svg" alt="Show Anaglyph Image in Fullscreen">
+                Anaglyph
+              </button>
+            </td>
+            <td>
+              <b>Filename:</b> <input type="text" id="basefilename" value="myimage">
+            </td>
+            <td>
+              <button type="button" id="bSaveStereoscopy" onclick="saveImage4Canvas('stereoscopy','png')">
+                <img src="img/icons-svg/fa-file-save-black.svg" alt="Save Stereoscopy Image">
+                Stereoscopy
+              </button>
+            </td>
+            <td>
+              <button type="button" id="bSaveAnaglyph" onclick="saveImage4Canvas('anaglyph','png')">
+                <img src="img/icons-svg/fa-file-save-black.svg" alt="Save Anaglyph Image">
+                Anaglyph
+              </button>
+            </td>
+            <td>
+              <button type="button" id="bSaveAlign" onclick="saveImage4Canvas('preview4cropstereo','png')">
+                <img src="img/icons-svg/i4m-shift-frame-black.svg" alt="save Crop Stereo Canvas">
+              </button>
+            <td>
+            <td>
+              <button type="button" id="bSaveLeft" onclick="saveImage4Canvas('anaglyph4left','png')" style="background-color: red;">
+                <img src="img/icons-svg/eye-white.svg" alt="save left anaglyph">
+              </button>
+            <td>
+            <td>
+              <button type="button" id="bSaveRight" onclick="saveImage4Canvas('anaglyph4right','png')"  style="background-color: #04AA6D;">
+                <img src="img/icons-svg/eye-white.svg" alt="save right anaglyph">
+              </button>
+            <td>
+              <button type="button" id="bShowAllCanvas" onclick="showAllCanvasClick()">
+                <img src="img/icons-svg/eye-black.svg" alt="show all Canvas">
+                Show all Canvas
+              </button>
+            </td>
+          </tr>
+
+        </table>
+        <div id="slider4stereoscopy">
+
+        </div>
+        <div id="container4stereoscopy"  style="align:center">
+          <div id="div4stereoscopy"  style="align:center">
+            <img  id="img4mask" data-stereo-eye="mask"  src="img/img4stereoscopy/stereoscopy_mask.png" style="display:none" />
+          </div>
+          <div id="div4anaglyph"  style="align:center">
+          </div>
+        </div>
+    </center>
+
+    <Xlink href="css/stereoscopy4wiki.css" rel="stylesheet">
+    <script src="js/save4blob.js"></script>
+    <script src="js/jquery-3.6.0.js"></script>
+    <script src="js/stereoscopy4wiki.js"></script>
+    <script src="js/mergeimage.js"></script>
+
+    <script>
+    	// select StereoConvergence containers
+
+    function initStereoscopy4JS() {
+      //var playerEl = document.querySelector('[data-stereo-player]');
+      console.log("initStereoscopy4JS()");
+      //alert("initStereoscopy4JS()");
+      var imgcontainer = el("div4stereoscopy");
+      img4dom = {
+        "preview": el("table4preview"),
+        "left": el("preview4left"),
+        "right": el("preview4right"),
+        "mask": el("img4mask")
+      };
+      options = {
+        "container": imgcontainer,
+        "img4dom":img4dom,
+        "color4left": el("color4left").value,
+        "color4right": el("color4right").value,
+        "filename4left": el("filename4left"),
+        "filename4right": el("filename4right"),
+        "images": vDataJSON.files4json.files,
+        "button4align": el("button4align"),
+        "button4cropstereo": el("button4cropstereo"),
+        "selector4output": el("selector4output"),
+        "exportbuttons": el("exportButtons")
+      };
+      // store instance in variable for further manipulation
+      stereoscopy4js = new Stereoscopy4JS(options);
+      //setTimeout(function () { stereoscopy4js.init},5000);
+      stereoscopy4js.append4canvas();
+      var fs = vDataJSON.files4json.files;
+      /*
+      stereoscopy4js.setImage(fs[0].name,"img4left.png",fs[0].file);
+      stereoscopy4js.setImage(fs[1].name,"img4right.png",fs[1].file);
+      stereoscopy4js.setImage(fs[2].name,"mask.png",fs[2].file);
+      */
+      stereoscopy4js.loadImages(vDataJSON.files4json.files);
+      stereoscopy4js.resetSizes4Canvas();
+      stereoscopy4js.setImageSize2Canvas();
+      //stereoscopy4js.showAllCanvas();
+      stereoscopy4js.copyImages2Canvas();
+      //stereoscopy4js.init();
+      stereoscopy4js.bindEvents();
+
+    }
+
+    setTimeout(initStereoscopy4JS,500);
+    //initStereoscopy4JS()
+    // initialize instance
+    //stereoscopy4js.init(imglist)
+
+    </script>
+  </body>
+</html>
