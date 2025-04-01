@@ -31,6 +31,7 @@ to perceive the image in 3D.
 
 
 ## Used Libraries
-* [JQuery](https://jquery.com/) `js/jquery.js`  URL: https://jquery.com - [License](https://jquery.com/license/): MIT
-* [LoadFile4DOM](https://www.gitlab.com/niehausbert/loadfile4dom) `js/loadfile4dom.js` - URL: https://www.gitlab.com/niehausbert/loadfile4dom - Demo: https://niehausbert.gitlab.io/loadfile4dom - License: [MIT](https://www.gitlab.com/niehausbert/loadfile4dom)
-* [JSONEditor](https://www.github.com/niebert/jsoneditor) `js/jsoneditor.js` URL: https://www.github.com/niebert/loadfile4dom - https://niebert.github.io/jsoneditor - Fork of [JSON-Editor by Jeremy Dorn](https://www.jeremydorn.com/json-editor)
+* **[JQuery](https://jquery.com/)** `js/jquery.js`  URL: https://jquery.com - [License](https://jquery.com/license/): MIT
+* **[LoadFile4DOM](https://www.gitlab.com/niehausbert/loadfile4dom)** `js/loadfile4dom.js` - URL: https://www.gitlab.com/niehausbert/loadfile4dom - Demo: https://niehausbert.gitlab.io/loadfile4dom - License: [MIT](https://www.gitlab.com/niehausbert/loadfile4dom)
+* **[JSONEditor](https://www.github.com/niebert/json-editor)** `js/jsoneditor.js` URL: https://www.github.com/niebert/loadfile4dom - https://niebert.github.io/jsoneditor - Fork of [JSON-Editor by Jeremy Dorn](https://www.jeremydorn.com/json-editor)
+* **[Bootstrap](https://github.com/twbs/bootstrap)** `js/bootstrap.js` License: MIT
