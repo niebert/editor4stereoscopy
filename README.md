@@ -6,7 +6,7 @@ This repository creates HTML5 WebApp (AppLSAC) for generation of stereoscopy and
 The editor for stereoscopy allows to load a left and right eye image and then align them properly for [stereoscopy 3D](https://en.wikiversity.org/wiki/Stereoscopy) perception or [Anaglyph 3D](https://en.wikiversity.org/wiki/Anaglyph_3D) images.
 
 ### Example Images to Learn Image Alignment with Editor4Stereoscopy
-This repository contains [example images]() to play with and learn the image alignment for [Anaglyph 3D](https://en.wikiversity.org/wiki/Anaglyph_3D) or [Stereocopy](https://en.wikiversity.org/wiki/Stereoscopy) images.
+This repository contains [example images](https://github.com/niebert/editor4stereoscopy/tree/main/img/img4stereoscopy) to play with and learn the image alignment for [Anaglyph 3D](https://en.wikiversity.org/wiki/Anaglyph_3D) or [Stereocopy](https://en.wikiversity.org/wiki/Stereoscopy) images.
 
 ### Stereoscopy Image - Left/Right Eye
 A stereoscopy image for the left and right eye. If you take a snapshot the left eye and the right eye image may not be align correctly. This stereoscopy editor as [AppLSAC](https://en.wikiversity.org/wiki/AppLSAC) allow the alignment for both images (see also https://en.wikiversity.org/wiki/Stereoscopy).
