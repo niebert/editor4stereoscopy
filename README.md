@@ -35,3 +35,4 @@ to perceive the image in 3D.
 * **[LoadFile4DOM](https://www.gitlab.com/niehausbert/loadfile4dom)** `js/loadfile4dom.js` - URL: https://www.gitlab.com/niehausbert/loadfile4dom - Demo: https://niehausbert.gitlab.io/loadfile4dom - License: [MIT](https://www.gitlab.com/niehausbert/loadfile4dom)
 * **[JSONEditor](https://www.github.com/niebert/json-editor)** `js/jsoneditor.js` URL: https://www.github.com/niebert/loadfile4dom - https://niebert.github.io/jsoneditor - Fork of [JSON-Editor by Jeremy Dorn](https://www.jeremydorn.com/json-editor)
 * **[Bootstrap](https://github.com/twbs/bootstrap)** `js/bootstrap.js` License: MIT
+* **[CamanJS](https://github.com/meltingice/CamanJS)** `js/camanjs.js` License: [BSD 3-Clause "New" or "Revised" License](https://github.com/meltingice/CamanJS/blob/master/LICENSE)
