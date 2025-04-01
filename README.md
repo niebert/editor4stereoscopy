@@ -8,7 +8,7 @@ The editor for stereoscopy allows to load a left and right eye image and then al
 ### Example Images to Learn Image Alignment with Editor4Stereoscopy
 This repository contains [example images](https://github.com/niebert/editor4stereoscopy/tree/main/img/img4stereoscopy) to play with and learn the image alignment for [Anaglyph 3D](https://en.wikiversity.org/wiki/Anaglyph_3D) or [Stereocopy](https://en.wikiversity.org/wiki/Stereoscopy) images.
 
-**Download ZIP:** for having a [local copy of example files](https://) 
+**Download ZIP:** for having a [local copy of example files](https://github.com/niebert/editor4stereoscopy/archive/refs/heads/main.zip) 
 **Clone Repository:** `git clone `
 
 ### Stereoscopy Image - Left/Right Eye
