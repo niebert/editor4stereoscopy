@@ -28,3 +28,7 @@ to perceive the image in 3D.
 * `img/` contains all used images of the [WebApp](https://en.wikiversity.org/wiki/AppLSAC)
 * `img/icons-svg` contains all icons as SVG files use in the [WebApp](https://en.wikiversity.org/wiki/AppLSAC)
 * `img/img4stereoscopy` contains left and right eye images and anaglyph and stereoscopy results created with the [Editor4Stereoscopy](https://niebert.github.io/editor4stereoscopy)
+
+
+## Used Libraries
+* [JQuery]([https://](https://jquery.com/)) `js/jquery.js` 
