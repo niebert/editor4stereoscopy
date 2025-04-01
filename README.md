@@ -32,3 +32,4 @@ to perceive the image in 3D.
 
 ## Used Libraries
 * [JQuery](https://jquery.com/) `js/jquery.js`  URL: https://jquery.com - [License](https://jquery.com/license/): MIT
+* [LoadFile4DOM](https://www.github.com/niebert/loadfile4dom) `js/loadfile4dom.js` - URL: https://www.github.com/niebert/loadfile4dom - Demo: https://niebert.github.io/loadfile4dom 
