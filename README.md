@@ -16,3 +16,9 @@ An [Anaglyph 3D](https://en.wikiversity.org/wiki/Anaglyph_3D) uses color encodin
 ![Tree Trunc Anaglyph](img/img4stereoscopy/treetrunk/treetrunk_anaglyph.png)
 
 
+## Folders in the Repository
+* `js/` folder contains the Javascript files of the [WebApp](https://en.wikiversity.org/wiki/AppLSAC)
+* `css/` folder contains all the style sheet files for the [WebApp](https://en.wikiversity.org/wiki/AppLSAC)
+* `img/` contains all used images of the [WebApp](https://en.wikiversity.org/wiki/AppLSAC)
+* `img/icons-svg` contains all icons as SVG files use in the [WebApp](https://en.wikiversity.org/wiki/AppLSAC)
+* `img/img4stereoscopy` contains left and right eye images and anaglyph and stereoscopy results created with the [Editor4Stereoscopy](https://niebert.github.io/editor4stereoscopy)
