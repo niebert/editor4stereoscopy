@@ -15,6 +15,9 @@ A stereoscopy image for the left and right eye. If you take a snapshot the left 
 
 ### Anaglyph - Left/Right Eye
 An [Anaglyph 3D](https://en.wikiversity.org/wiki/Anaglyph_3D) uses color encoding (e.g. red and green) to separate the images for the left and right eye.
+* Use the green filter for your left eye and
+* Use the red filter for your left eye
+to perceive the image in 3D.
 
 ![Tree Trunc Anaglyph](img/img4stereoscopy/treetrunk/treetrunk_anaglyph.png)
 
