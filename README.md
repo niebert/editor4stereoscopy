@@ -1,7 +1,7 @@
 # Editor for Stereoscopy
 This repository creates HTML5 WebApp (AppLSAC) for generation of stereoscopy and anaglyph images created for a Wikiversity learning resource about Stereoscopy. VR headset with an inserted smartphone can be used for stereoscopy images by splitting the screen in left eye and right eye. Anaglyph images can be generated with the AppLSAC too.
 
-<h3><a href="https://niebert.github.io/editor4stereoscopy" target="_blank">Editor for Stereoscopy</a></h3>
+<h3>WebApp Demo: <a href="https://niebert.github.io/editor4stereoscopy" target="_blank">Editor for Stereoscopy</a></h3>
 
 The editor for stereoscopy allows to load a left and right eye image and then align them properly for [stereoscopy 3D](https://en.wikiversity.org/wiki/Stereoscopy) perception or [Anaglyph 3D](https://en.wikiversity.org/wiki/Anaglyph_3D) images.
 
