@@ -31,4 +31,4 @@ to perceive the image in 3D.
 
 
 ## Used Libraries
-* [JQuery](https://jquery.com/) `js/jquery.js`  URL: https://jquery.com
+* [JQuery](https://jquery.com/) `js/jquery.js`  URL: https://jquery.com - [License](https://jquery.com/license/): MIT
