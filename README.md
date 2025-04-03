@@ -3,6 +3,10 @@ This repository creates HTML5 WebApp (AppLSAC) for generation of stereoscopy and
 
 <h3>WebApp Demo: <a href="https://niebert.github.io/editor4stereoscopy" target="_blank">Editor for Stereoscopy</a></h3>
 
+## Core Idea of Stereoscopy
+Use your camera and record two images of the same object in the center and shift the camera horizontally with the distance of yours eyes to the right and record the second image. Then use both recorded image for left eye and right eye image the <a href="https://niebert.github.io/editor4stereoscopy" target="_blank">editor4stereoscopy</a>. In transparent view of both images drag one image so that a specific point of your recorded object matches in both images.
+That is the target for alignment of both images. If you rotated your camera slightly from left to right image, then you are able to correct this with the rotation of one image for a perfect match. For anaglyph 3D image (e.g. red-green images filters) use these glasses to check the stereoscopic result or use the stereoscopy image (left eye image and right eye image next to eachother) in a VR headset with your smartphone.
+
 The editor for stereoscopy allows to load a left and right eye image and then align them properly for [stereoscopy 3D](https://en.wikiversity.org/wiki/Stereoscopy) perception or [Anaglyph 3D](https://en.wikiversity.org/wiki/Anaglyph_3D) images.
 
 ### Example Images to Learn Image Alignment with Editor4Stereoscopy
